@@ -36,7 +36,7 @@ import os, os.path
 import config
 from error import error_occurred, get_error_list
 from parser import parse
-from map import map_var, map_pro, map_func
+from i2py_map import map_var, map_pro, map_func
 import maplib
 
 
