@@ -35,15 +35,16 @@ import i2py
 ################################################################################
 
 
-if sys.argv[1] == 'sdist':
-   import os, os.path
-   import pydoc
-   os.chdir('doc')
-   moddir = os.path.join(os.pardir, 'i2py')
-   sys.path.insert(0, moddir)
-   pydoc.writedocs(moddir, 'i2py.')
-   sys.path.pop(0)
-   os.chdir(os.pardir)
+if len(sys.argv) > 1 :
+   if  sys.argv[1] == 'sdist':
+      import os, os.path
+      import pydoc
+      os.chdir('doc')
+      moddir = os.path.join(os.pardir, 'i2py')
+      sys.path.insert(0, moddir)
+      pydoc.writedocs(moddir, 'i2py.')
+      sys.path.pop(0)
+      os.chdir(os.pardir)
 
 
 ################################################################################
@@ -58,14 +59,15 @@ desc = i2py.__doc__.split('\n\n')
 
 setup(name='i2py',
       version=i2py.__version__,
-      author='Christopher J. Stawarz',
-      author_email='chris@pseudogreen.org',
-      url='http://software.pseudogreen.org/i2py/',
+      author='Christopher J. Stawarz, James Michael DuPont',
+      author_email='chris@pseudogreen.org, jamesmikedupont@gmail.com',
+      url='http://software.pseudogreen.org/i2py/, https://github.com/h4ck3rm1k3/i2py ',
       license='http://www.fsf.org/licensing/licenses/gpl.html',
       platforms=['any'],
       description=desc[0].strip(),
       long_description=('\n' + '\n\n'.join(desc[1:]).strip() + '\n'),
       packages=['i2py'],
+      requires=['ply'],
       scripts=['idl2python'],
      )
 
